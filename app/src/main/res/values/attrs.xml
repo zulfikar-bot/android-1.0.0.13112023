@@ -1,0 +1,3 @@
+<resources>
+    <attr name="toolbarTextColor" format="color" />
+</resources>

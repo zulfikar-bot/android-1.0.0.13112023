@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yellow">#FFFF00</color>
+    <color name="brown">#964B00</color>
+    <color name="purple_500">#9c27b0</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="link">#FF004085</color>
+    <color name="orange">#FFA500</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="my_light_toolbar_text_color">#FFFFFFFF</color>
+    <color name="my_light_primary">#800000</color>
+    <color name="my_light_primary_variant">#00008B</color>
+    <color name="my_light_accent">#006400</color>
+    <color name="my_light_background">#FFFFFFFF</color>
+    <color name="my_light_text_primary">#FF000000</color>
+    <color name="my_light_text_secondary">#FF5A5A5A</color>
+    <color name="my_dark_toolbar_text_color">#FF000000</color>
+    <color name="my_dark_primary">#FFFF99</color>
+    <color name="my_dark_primary_variant">#ADD8E6</color>
+    <color name="my_dark_accent">#90EE90</color>
+    <color name="my_dark_background">#FF000000</color>
+    <color name="my_dark_text_primary">#FFFFFFFF</color>
+    <color name="my_dark_text_secondary">#FFA8A8A8</color>
+    <!-- Tambahkan warna tambahan sesuai kebutuhan Anda -->
+</resources>
