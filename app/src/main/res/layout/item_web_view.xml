@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

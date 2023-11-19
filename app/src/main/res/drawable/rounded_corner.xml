@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white"/>
+    <corners android:radius="8dp"></corners>
+
+</shape>

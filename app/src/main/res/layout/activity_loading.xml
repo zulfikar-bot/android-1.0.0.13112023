@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -47,5 +57,16 @@
                 android:text="@string/loading"
                 />
         </LinearLayout>
+        <TextView
+            android:id="@+id/copyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="50dp"
+            android:text="@string/copyright"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

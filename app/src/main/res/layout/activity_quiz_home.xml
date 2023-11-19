@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".QuizHome">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/dayxdark"
+                android:layout_width="124dp"
+                android:layout_height="50dp"
+                android:checked="false"
+                android:text="@string/dark_mode"
+                android:layout_marginBottom="20dp"
+                app:showText="false" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Quiz"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/soal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:layout_centerInParent="true"
+                android:text="5 Question"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="50sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNilai"
+                android:layout_centerHorizontal="true"
+                android:text="60 Seconds"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/tvhasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMessage"
+                android:layout_centerHorizontal="true"
+                android:text="Are you ready?"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tvhasil"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

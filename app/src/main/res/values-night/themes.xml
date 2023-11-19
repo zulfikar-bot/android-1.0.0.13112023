@@ -1,4 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.BelajarBahasaInggris" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
@@ -9,6 +19,13 @@
         <item name="android:textColorPrimary">@color/my_dark_text_primary</item> <!-- Text color primary for dark theme -->
         <item name="android:textColorSecondary">@color/my_dark_text_secondary</item> <!-- Text color secondary for dark theme -->
         <item name="toolbarTextColor">@color/my_dark_toolbar_text_color</item>
+        <item name="colorControlActivated">#3F51B5</item>
+        <item name="colorControlHighlight">#E91E1E</item>
         <!-- Add more customizations for dark theme here -->
     </style>
+
+    <style name="BorderlessButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@null</item>
+    </style>
+
 </resources>

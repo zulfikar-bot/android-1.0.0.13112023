@@ -1,3 +1,13 @@
+/*
+ * *
+ *  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+ *  * Nama Aplikasi : Belajar Bahasa Inggris
+ *  * Nama Package : com.zulfikar.belajarbahasainggris
+ *  * Versi Aplikasi : 1.0.1.20112023
+ *
+ *
+ */
+
 package com.zulfikar.belajarbahasainggris;
 
 import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
@@ -60,6 +70,12 @@ public class MainMenu extends AppCompatActivity {
             } else {
                 intent = new Intent(this, MenuLogin.class);
             }
+            startActivity(intent);
+        });
+
+        TableRow menu7 = findViewById(R.id.menu7);
+        menu7.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainMenu2.class);
             startActivity(intent);
         });
     }

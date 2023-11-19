@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Quiz">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.BelajarBahasaInggris">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/dayxdark"
+                    android:layout_width="124dp"
+                    android:layout_height="50dp"
+                    android:checked="false"
+                    android:text="@string/dark_mode"
+                    app:showText="false" />
+
+                <TableRow
+                    android:id="@+id/menu1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginLeft="7dp" >
+                </TableRow>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Time : 60 s"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="28sp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    android:src="@drawable/images"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_margin="50dp"
+                    android:contentDescription="images" />
+
+                <LinearLayout
+                    android:id="@+id/linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/play_pause"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/play"
+                        android:layout_margin="5dp"
+                        android:contentDescription="icon" />
+
+                    <ImageView
+                        android:id="@+id/stop"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/stop"
+                        android:visibility="gone"
+                        android:layout_margin="5dp"
+                        android:contentDescription="icon" />
+
+                    <TextView
+                        android:id="@+id/waktu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00.00.00"
+                        android:layout_margin="5dp" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvSoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="Soal Nomor 1"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgPilihan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/tvSoal">
+
+                        <RadioButton
+                            android:id="@+id/rbA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pilihan a"
+                            android:textSize="24sp"
+                            android:textColor="?android:attr/textColorPrimary"/>
+
+                        <RadioButton
+                            android:id="@+id/rbB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pilihan B"
+                            android:textSize="24sp"
+                            android:textColor="?android:attr/textColorPrimary"/>
+
+                        <RadioButton
+                            android:id="@+id/rbC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pilihan C"
+                            android:textSize="24sp"
+                            android:textColor="?android:attr/textColorPrimary"/>
+
+                        <RadioButton
+                            android:id="@+id/rbD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pilihan D"
+                            android:textSize="24sp"
+                            android:textColor="?android:attr/textColorPrimary"/>
+
+                    </RadioGroup>
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/btnSelanjutnya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="Soal Selanjutnya" />
+            </LinearLayout>
+        </ScrollView>
+</LinearLayout>

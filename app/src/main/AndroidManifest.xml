@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <!-- Explicit apps you know in advance about: -->
+        <package android:name="com.linkedin.android"/>
+        <package android:name="com.pinterest.twa"/>
+        <package android:name="com.twitter.android.lite"/>
+        <package android:name="com.google.android.youtube"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.twitter.android"/>
+        <package android:name="com.pinterest"/>
+        <package android:name="com.github.android"/>
+        <package android:name="com.linkedin.android.lite"/>
+        <package android:name="com.facebook.lite"/>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -35,7 +58,17 @@
         </activity>
 
         <activity
+            android:name=".MainMenu2"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".Biodata"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".DetailNoteActivity"
             android:exported="true">
         </activity>
 
@@ -43,6 +76,17 @@
             android:name=".Scrollable"
             android:exported="true">
         </activity>
+
+        <activity
+            android:name=".AddNoteActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Notepad"
+            android:exported="true">
+        </activity>
+
 
         <activity
             android:name=".WebViews"
@@ -65,6 +109,26 @@
         </activity>
 
         <activity
+            android:name=".EditNoteActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Quiz"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".QuizHome"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".QuizResult"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".SocialMedia"
             android:exported="true">
         </activity>
@@ -79,6 +143,43 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".Tts"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Tampilan.Home"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Tampilan.Play"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Tampilan.Hasil"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Tampilan.ViewPager"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Tampilan.Profil"
+            android:exported="true">
+        </activity>
+
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
+        </intent>
+    </queries>
 
 </manifest>

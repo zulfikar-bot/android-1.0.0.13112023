@@ -1,3 +1,13 @@
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <resources>
     <string name="app_name">Belajar Bahasa Inggris</string>
     <string name="image_campus">Image Campus</string>
@@ -52,7 +62,7 @@
     <string name="telepon"><u><i>+62 822-7942-5257</i></u></string>
     <string name="blogspot"><u><i>https://muhammadzulfikarputra.blogspot.com/</i></u></string>
     <string name="wordpress"><u><i>https://muhammadzulfikarputra.wordpress.com/</i></u></string>
-    <string name="facebook"><u><i>https://m.facebook.com/profile.php/?id=100000658541302</i></u></string>
+    <string name="facebook"><u><i>https://www.facebook.com/profile.php/?id=100000658541302</i></u></string>
     <string name="youtube"><u><i>https://www.youtube.com/@MuhammadZulfikarPutra</i></u></string>
     <string name="linkedin"><u><i>https://www.linkedin.com/in/muhammad-zulfikar-sachori-putra-701854154/</i></u></string>
     <string name="twitter"><u><i>https://twitter.com/mzulfikarsp/</i></u></string>
@@ -63,11 +73,16 @@
     <string name="warga">Warga Negara Indonesia</string>
     <string name="pekerjaan">Pekerjaan</string>
     <string name="pekerjaan2">Pelajar/Mahasiswa</string>
-    <string name="_2">2.</string>
-    <string name="_3">3.</string>
-    <string name="_1">1.</string>
-    <string name="_4">4.</string>
-    <string name="_5">5.</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_0">0</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_1">1</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
     <string name="pinterest2">Pinterest</string>
     <string name="sosial_media">Sosial Media</string>
     <string name="status_perkawinan">Status Perkawinan</string>
@@ -90,4 +105,74 @@
     <string name="tombol_browser">Tombol browser</string>
     <string name="common_english_grammar_mistakes">COMMON ENGLISH GRAMMAR MISTAKES</string>
     <string name="image">image</string>
+    <string name="default_title">Tidak ada judul</string>
+    <string name="github2"><u><i>https://github.com/zulfikar-bot/android-1.0.0.13112023/</i></u></string>
+    <string name="github">Github</string>
+    <string name="default_description">Tidak ada deskripsi</string>
+    <string name="default_time">Tidak ada keterangan waktu</string>
+    <string name="formatted_output">ID : %1$s - %2$s (%3$s)</string>
+    <string name="_1_linkedin">1. LinkedIn</string>
+    <string name="_2_youtube">2. YouTube</string>
+    <string name="_3_facebook">3. Facebook</string>
+    <string name="_4_twitter">4. Twitter</string>
+    <string name="_5_pinterest">5. Pinterest</string>
+    <string name="_6_github">6. GitHub</string>
+    <string name="error_message">Error</string>
+    <string name="plus2">+</string>
+    <string name="kurang">-</string>
+    <string name="kali">*</string>
+    <string name="akar">√</string>
+    <string name="pangkat">^</string>
+    <string name="cos">cos</string>
+    <string name="sin">sin</string>
+    <string name="decimal">.</string>
+    <string name="bagi">/</string>
+    <string name="tan">tan</string>
+    <string name="persen">%</string>
+    <string name="log3">log</string>
+    <string name="sd">=</string>
+    <string name="c">C</string>
+    <string name="placeholder_dot">.</string>
+    <string name="placeholder_digit">%s</string>
+    <string name="placeholder_text">%s %s</string>
+    <string name="placeholder_function">%1$s(%2$s)</string>
+    <string name="social_media">SOCIAL MEDIA</string>
+    <string name="muhammad_zulfikar_sachori_putra">MUHAMMAD ZULFIKAR SACHORI PUTRA</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="soal1">I’m tall when I’m young, and I’m short when I’m old. What am I?.</string>
+    <string name="soal2">What is full of holes but still holds water?.</string>
+    <string name="soal3">What can ignite your heart, yet has no flame? It can push you forward, yet it has no physical force. It’s not in the air, but it can lift you high. What is it?.</string>
+    <string name="soal4">What can you break, even if you never pick it up or touch it?.</string>
+    <string name="soal5">I make a loud sound when I’m changing. When I do change, I get bigger but weigh less. What am I?.</string>
+    <string name="play">PLAY</string>
+    <string name="profil">Profil</string>
+    <string name="exit">Exit</string>
+    <string name="hasil">Result</string>
+    <string name="nama2">Name :</string>
+    <string name="inputname">Input Your Name</string>
+    <string name="score">Your Score</string>
+    <string name="penjelasan1">When a candle is new or “young”, it is long or “tall”. As the candle is used, it burns down, becoming shorter or “shorter”.</string>
+    <string name="penjelasan2">A sponge is full of holes. These holes are spaces in the material that make up the sponge. If you look at a sponge, you can see these holes clearly. Despite being full of holes, a sponge can hold water. This is because the material of a sponge is absorbent, meaning it can soak up liquids. When you dip a sponge in water, the water fills up the holes and is stored in the sponge. Even when you take the sponge out of the water, the water doesn’t immediately pour out of the holes. Instead, it stays inside the sponge until you squeeze it or until the water evaporates. This is why we say a sponge “holds” water. So, even though a sponge has many holes, it can still hold water because of its absorbent material.</string>
+    <string name="penjelasan3">“What can ignite your heart, yet has no flame?” This refers to the emotional “spark” or excitement that inspiration can create within us. Just like a flame can ignite a fire, inspiration can ignite passion and motivation. However, unlike a physical flame, inspiration is an abstract concept. “It can push you forward, yet it has no physical force.” Inspiration often motivates us to take action and move forward with our ideas and goals. Despite having no physical presence, it can have a powerful influence on our actions and decisions. It’s not in the air, but it can lift you high.” This speaks to the uplifting feeling that often accompanies inspiration. When we’re inspired, we often feel a sense of elation or “high.” However, inspiration isn’t a physical thing that can be found “in the air.”</string>
+    <string name="penjelasan4">A promise is a commitment or assurance that one will do something or that a particular thing will happen. Unlike physical objects, a promise is abstract and cannot be picked up or touched. Despite its intangible nature, a promise can be “broken”. This happens when the person who made the promise does not follow through on their commitment. For example, if someone promises to call you tomorrow, and they don’t, they have broken their promise.</string>
+    <string name="penjelasan5">Popcorn kernels make a loud popping sound when they’re heated. This is because the heat causes the water inside the kernel to turn into steam, which builds up pressure until the kernel explodes. When a popcorn kernel pops, it turns inside out and becomes much larger than it was before. Despite getting bigger, popped popcorn actually weighs less than the original kernel. This is because the water inside the kernel, which contributes to its weight, turns into steam and is released when the kernel pops.</string>
+    <string name="penjelasan">Penjelasan :</string>
+    <string name="no5">5. POPCORN</string>
+    <string name="no4">4. PROMISE</string>
+    <string name="no3">3. INSPIRE</string>
+    <string name="no2">2. SPONGE</string>
+    <string name="no1">1. CANDLE</string>
+    <string name="about">ABOUT</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="myname">Muhammad Zulfikar Sachori Putra</string>
+    <string name="change">Change Profile</string>
+    <string name="backhome">BACK TO HOME</string>
+    <string name="letsplay">Lets Play Teka-Teki Silang</string>
+    <string name="vp_play">Bermainlah dan tambah wawasan seputar English</string>
+    <string name="explanation">EXPLANATION</string>
+    <string name="vp_explanation">Terdapat penjalasan singkat tentang soal - soal TTS</string>
+    <string name="created">CREATED BY</string>
+    <string name="vp_crated">Game ini dibuat oleh Muhammad Zulfikar Sachori Putra</string>
 </resources>

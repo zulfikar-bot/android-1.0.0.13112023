@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <resources>
     <color name="yellow">#FFFF00</color>
     <color name="brown">#964B00</color>
@@ -7,6 +17,33 @@
     <color name="white">#FFFFFFFF</color>
     <color name="link">#FF004085</color>
     <color name="orange">#FFA500</color>
+    <color name="grey">#E0E0E0</color>
+    <color name="blue">#523B4DA8</color>
+    <color name="bgprofil">#86C3F9</color>
+    <color name="bglayoutprofil">#54038FF5</color>
+    <color name="green">#2A4CAF50</color>
+    <color name="valid">#02E002</color>
+
+
+    <color name="dot_dark_screen1">#03105A</color>
+    <color name="dot_dark_screen2">#03105A</color>
+    <color name="dot_dark_screen3">#03105A</color>
+
+    <color name="dot_light_screen1">#2C03105A</color>
+    <color name="dot_light_screen2">#2C03105A</color>
+    <color name="dot_light_screen3">#2C03105A</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+    </array>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorAccent">#FF4081</color>
     <color name="my_light_toolbar_text_color">#FFFFFFFF</color>

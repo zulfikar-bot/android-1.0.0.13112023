@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+  ~  * Nama Aplikasi : Belajar Bahasa Inggris
+  ~  * Nama Package : com.zulfikar.belajarbahasainggris
+  ~  * Versi Aplikasi : 1.0.1.20112023
+  ~  */
+  ~
+  -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -394,24 +404,22 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/social_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_1" />
+                            android:text="@string/_1_linkedin" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/sociala_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/linkedin2" />
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
 
                             <TextView
                                 android:id="@+id/social_value"
@@ -425,24 +433,22 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/social1_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_2" />
+                            android:text="@string/_2_youtube" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/social1a_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/youtube2" />
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
 
                             <TextView
                                 android:id="@+id/social1_value"
@@ -456,24 +462,22 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/social2_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_3" />
+                            android:text="@string/_3_facebook" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/social2a_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/facebook2" />
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
 
                             <TextView
                                 android:id="@+id/social2_value"
@@ -487,24 +491,22 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/social3_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_4" />
+                            android:text="@string/_4_twitter" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/social3a_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/twitter2" />
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
 
                             <TextView
                                 android:id="@+id/social3_value"
@@ -518,30 +520,57 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/social4_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_5" />
+                            android:text="@string/_5_pinterest" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/social4a_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/pinterest2" />
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
 
                             <TextView
                                 android:id="@+id/social4a_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/pinterest"
+                                android:textColor="@color/link" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/social5_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_6_github" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="0dp">
+
+                            <TextView
+                                android:id="@+id/social5a_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/github2"
                                 android:textColor="@color/link" />
                         </LinearLayout>
                     </LinearLayout>
