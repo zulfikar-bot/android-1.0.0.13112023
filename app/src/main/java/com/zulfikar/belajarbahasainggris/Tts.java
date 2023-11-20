@@ -1,6 +1,14 @@
-package com.zulfikar.belajarbahasainggris;
+/*
+ * *
+ *  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+ *  * Nama Aplikasi : Belajar Bahasa Inggris
+ *  * Nama Package : com.zulfikar.belajarbahasainggris
+ *  * Versi Aplikasi : 1.0.1.20112023
+ *
+ *
+ */
 
-import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
+package com.zulfikar.belajarbahasainggris;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +24,6 @@ public class Tts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tts);
-        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
-        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
         new Handler().postDelayed(() -> {
             Intent i = new Intent(Tts.this, ViewPager.class);
             startActivity(i);

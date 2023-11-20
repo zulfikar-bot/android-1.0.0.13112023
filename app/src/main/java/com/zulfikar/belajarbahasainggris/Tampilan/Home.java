@@ -1,6 +1,15 @@
+/*
+ * *
+ *  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+ *  * Nama Aplikasi : Belajar Bahasa Inggris
+ *  * Nama Package : com.zulfikar.belajarbahasainggris
+ *  * Versi Aplikasi : 1.0.1.20112023
+ *
+ *
+ */
+
 package com.zulfikar.belajarbahasainggris.Tampilan;
 
-import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Profil.NAME;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Profil.PROFIL;
 
@@ -15,7 +24,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zulfikar.belajarbahasainggris.ActivityLoading;
-import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
 import com.zulfikar.belajarbahasainggris.R;
 
 public class Home extends AppCompatActivity {
@@ -24,8 +32,6 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
-        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         ImageView profil = findViewById(R.id.profil);
         TextView name = findViewById(R.id.name);

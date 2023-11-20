@@ -1,6 +1,14 @@
-package com.zulfikar.belajarbahasainggris.Tampilan;
+/*
+ * *
+ *  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+ *  * Nama Aplikasi : Belajar Bahasa Inggris
+ *  * Nama Package : com.zulfikar.belajarbahasainggris
+ *  * Versi Aplikasi : 1.0.1.20112023
+ *
+ *
+ */
 
-import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
+package com.zulfikar.belajarbahasainggris.Tampilan;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +25,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
 import com.zulfikar.belajarbahasainggris.R;
 
 public class ViewPager extends AppCompatActivity {
@@ -31,8 +38,6 @@ public class ViewPager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
-        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
-        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);

@@ -1,6 +1,15 @@
+/*
+ * *
+ *  * Copyright (c) 2023 - Muhammad Zulfikar Sachori Putra
+ *  * Nama Aplikasi : Belajar Bahasa Inggris
+ *  * Nama Package : com.zulfikar.belajarbahasainggris
+ *  * Versi Aplikasi : 1.0.1.20112023
+ *
+ *
+ */
+
 package com.zulfikar.belajarbahasainggris.Tampilan;
 
-import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_1;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_2;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_3;
@@ -15,7 +24,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
 import com.zulfikar.belajarbahasainggris.R;
 import com.zulfikar.belajarbahasainggris.model.jawaban;
 import com.zulfikar.belajarbahasainggris.model.jawaban2;
@@ -47,8 +55,6 @@ public class Hasil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasil);
-        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
-        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         ket = findViewById(R.id.ket);
         ket2 = findViewById(R.id.ket2);
