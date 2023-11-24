@@ -10,6 +10,7 @@
 
 package com.zulfikar.belajarbahasainggris.Tampilan;
 
+import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_1;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_2;
 import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_3;
@@ -18,12 +19,19 @@ import static com.zulfikar.belajarbahasainggris.Tampilan.Play.SOAL_5;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 
+import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
 import com.zulfikar.belajarbahasainggris.R;
 import com.zulfikar.belajarbahasainggris.model.jawaban;
 import com.zulfikar.belajarbahasainggris.model.jawaban2;
@@ -32,29 +40,33 @@ import com.zulfikar.belajarbahasainggris.model.jawaban4;
 import com.zulfikar.belajarbahasainggris.model.jawaban5;
 
 public class Hasil extends AppCompatActivity {
+    ConstraintLayout layout;
     TextView edit1,edit2,edit3,edit4,edit5,edit12;
     TextView edit6, edit7, edit8, edit9, edit10, edit11;
     TextView edit13, edit14, edit15, edit16, edit17, edit21;
     TextView edit18, edit19, edit20, edit22, edit28;
     TextView edit23, edit24, edit25, edit26, edit27;
-    TextView edit12a, edit6a, edit21a, edit10a, edit28a;
+    TextView edit12a, edit6a, edit21a, edit8a, edit28a;
     TextView ket, ket2, ket3, ket4, ket5, hasil;
     String benar = "*Jawaban Benar";
     String salah = "*Jawaban Salah";
     int score;
+    int question = 5;
 
     public int getScore() {
         return score;
     }
 
     public void setScore(int score) {
-        this.score = (this.score) + score*25;
+        this.score = (this.score) + score*(100/question);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hasil);
+        setContentView(R.layout.activity_tts_hasil);
+        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
+        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         ket = findViewById(R.id.ket);
         ket2 = findViewById(R.id.ket2);
@@ -66,7 +78,7 @@ public class Hasil extends AppCompatActivity {
         edit12a = findViewById(R.id.edit12a);
         edit6a = findViewById(R.id.edit6a);
         edit21a = findViewById(R.id.edit21a);
-        edit10a = findViewById(R.id.edit10a);
+        edit8a = findViewById(R.id.edit8a);
         edit28a = findViewById(R.id.edit28a);
 
         edit1 = findViewById(R.id.edit1);
@@ -102,6 +114,16 @@ public class Hasil extends AppCompatActivity {
         edit26 = findViewById(R.id.edit26);
         edit27 = findViewById(R.id.edit27);
 
+        layout = findViewById(R.id.layout);
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            warna(R.drawable.bluebg);
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(0);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            warna(R.drawable.ttsbg2);
+        }
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
@@ -111,6 +133,12 @@ public class Hasil extends AppCompatActivity {
             jawaban3 j3 = extras.getParcelable(SOAL_3);
             jawaban4 j4 = extras.getParcelable(SOAL_4);
             jawaban5 j5 = extras.getParcelable(SOAL_5);
+
+            assert j != null;
+            assert j2 != null;
+            assert j3 != null;
+            assert j4 != null;
+            assert j5 != null;
 
             String soal1 = j.getSoal1().toUpperCase();
             String soal2 = j.getSoal2().toUpperCase();
@@ -145,42 +173,11 @@ public class Hasil extends AppCompatActivity {
             String soal17 = j5.getSoal17().toUpperCase();
             String soal21 = j5.getSoal21().toUpperCase();
 
-            if (soal1.equals("C") && soal2.equals("A")&& soal3.equals("N")&& soal4.equals("D")&& soal5.equals("L")&& soal12.equals("E")){
-                this.ket.setText(benar);
-                setScore(1);
-            }
-            else{
-                this.ket.setText(salah);
-                this.ket.setTextColor(Color.RED);
-            }
-            if(soal18.equals("S") && soal19.equals("P") && soal20.equals("O") && soal21.equals("N") && soal22.equals("G") && soal28.equals("E")){
-                this.ket2.setText(benar);
-                setScore(1);
-            }else {
-                this.ket2.setText(salah);
-                this.ket2.setTextColor(Color.RED);
-            }
-            if(soal10.equals("I") && soal23.equals("N")&&soal24.equals("S") && soal25.equals("P") && soal26.equals("I") && soal27.equals("R") && soal28.equals("E")){
-                this.ket3.setText(benar);
-                setScore(1);
-            }else {
-                this.ket3.setText(salah);
-                this.ket3.setTextColor(Color.RED);
-            }
-            if(soal6.equals("P") && soal7.equals("R") && soal8.equals("O") && soal9.equals("M")&& soal10.equals("I") && soal11.equals("S")&& soal12.equals("E")){
-                this.ket4.setText(benar);
-                setScore(1);
-            }else {
-                this.ket4.setText(salah);
-                this.ket4.setTextColor(Color.RED);
-            }
-            if(soal6.equals("P") && soal13.equals("O") && soal14.equals("P") && soal15.equals("C") && soal16.equals("O")&& soal17.equals("R")&& soal21.equals("N")){
-                this.ket5.setText(benar);
-                setScore(1);
-            }else {
-                this.ket5.setText(salah);
-                this.ket5.setTextColor(Color.RED);
-            }
+            checkAnswer(new String[]{soal1, soal2, soal3, soal4, soal5, soal12}, this.ket, new String[]{"C", "A", "N", "D", "L", "E"});
+            checkAnswer(new String[]{soal18, soal19, soal20, soal21, soal22, soal28}, this.ket2, new String[]{"S", "P", "O", "N", "G", "E"});
+            checkAnswer(new String[]{soal8, soal23, soal24, soal25, soal26, soal27, soal28}, this.ket3, new String[]{"O", "U", "T", "S", "I", "D", "E"});
+            checkAnswer(new String[]{soal6, soal7, soal8, soal9, soal10, soal11, soal12}, this.ket4, new String[]{"P", "R", "O", "M", "I", "S", "E"});
+            checkAnswer(new String[]{soal6, soal13, soal14, soal15, soal16, soal17, soal21}, this.ket5, new String[]{"P", "O", "P", "C", "O", "R", "N"});
 
             if (getScore() < 0){
                 setScore(0);
@@ -192,7 +189,7 @@ public class Hasil extends AppCompatActivity {
             this.edit12a.setText(soal12);
             this.edit6a.setText(soal6);
             this.edit21a.setText(soal21);
-            this.edit10a.setText(soal10);
+            this.edit8a.setText(soal8);
             this.edit28a.setText(soal28);
 
             this.edit1.setText(soal1);
@@ -239,4 +236,64 @@ public class Hasil extends AppCompatActivity {
             finish();
         });
     }
+
+    private void warna(int bg) {
+        Drawable background = ResourcesCompat.getDrawable(getResources(), bg, null);
+        layout.setBackground(background);
+        edit1.setTextColor(Color.BLACK);
+        edit2.setTextColor(Color.BLACK);
+        edit3.setTextColor(Color.BLACK);
+        edit4.setTextColor(Color.BLACK);
+        edit5.setTextColor(Color.BLACK);
+        edit12.setTextColor(Color.BLACK);
+        edit6.setTextColor(Color.BLACK);
+        edit7.setTextColor(Color.BLACK);
+        edit8.setTextColor(Color.BLACK);
+        edit9.setTextColor(Color.BLACK);
+        edit10.setTextColor(Color.BLACK);
+        edit11.setTextColor(Color.BLACK);
+        edit13.setTextColor(Color.BLACK);
+        edit14.setTextColor(Color.BLACK);
+        edit15.setTextColor(Color.BLACK);
+        edit16.setTextColor(Color.BLACK);
+        edit17.setTextColor(Color.BLACK);
+        edit21.setTextColor(Color.BLACK);
+        edit18.setTextColor(Color.BLACK);
+        edit19.setTextColor(Color.BLACK);
+        edit20.setTextColor(Color.BLACK);
+        edit22.setTextColor(Color.BLACK);
+        edit28.setTextColor(Color.BLACK);
+        edit23.setTextColor(Color.BLACK);
+        edit24.setTextColor(Color.BLACK);
+        edit25.setTextColor(Color.BLACK);
+        edit26.setTextColor(Color.BLACK);
+        edit27.setTextColor(Color.BLACK);
+        edit12a.setTextColor(Color.BLACK);
+        edit6a.setTextColor(Color.BLACK);
+        edit21a.setTextColor(Color.BLACK);
+        edit8a.setTextColor(Color.BLACK);
+        edit28a.setTextColor(Color.BLACK);
+    }
+
+    private void checkAnswer(String[] answers, TextView textView, String[] correctAnswers) {
+        boolean isCorrect = true;
+        for (int i = 0; i < answers.length; i++) {
+            if (!answers[i].equals(correctAnswers[i])) {
+                isCorrect = false;
+                break;
+            }
+        }
+
+        if (isCorrect) {
+            textView.setText(benar);
+            Paint paint = textView.getPaint();
+            paint.setShadowLayer(1, 3, 3, Color.BLACK);
+            textView.setLayerType(View.LAYER_TYPE_SOFTWARE, paint);
+            setScore(1);
+        } else {
+            textView.setText(salah);
+            textView.setTextColor(Color.RED);
+        }
+    }
+
 }

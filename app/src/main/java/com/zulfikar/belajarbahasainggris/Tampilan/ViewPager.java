@@ -10,8 +10,10 @@
 
 package com.zulfikar.belajarbahasainggris.Tampilan;
 
-import android.content.Context;
+import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
+
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -23,43 +25,82 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
 import com.zulfikar.belajarbahasainggris.R;
 
 public class ViewPager extends AppCompatActivity {
 
-    private androidx.viewpager.widget.ViewPager viewPager;
+    private androidx.viewpager2.widget.ViewPager2 viewPager;
     private LinearLayout dotsLayout;
-    private int[] layouts;
+    private final int[] layouts = new int[]{
+            R.layout.viewpager1,
+            R.layout.viewpager2,
+            R.layout.viewpager3};
     private Button btnSkip, btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_pager);
+        setContentView(R.layout.activity_tts_view_pager);
+        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
+        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);
-        btnSkip = findViewById(R.id.btn_skip);
-        btnNext = findViewById(R.id.btn_next);
-        layouts = new int[]{
-                R.layout.viewpager1,
-                R.layout.viewpager2,
-                R.layout.viewpager3};
+        this.btnSkip = findViewById(R.id.btn_skip);
+        this.btnNext = findViewById(R.id.btn_next);
 
-        addBottomDots(0);
+        if (isDarkMode) {
+            warna(Color.BLACK);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            warna(Color.WHITE);
+            getWindow().getDecorView().setSystemUiVisibility(0);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                addBottomDots(position);
+
+                // changing the next button text 'NEXT' / 'GOT IT'
+                if (position == layouts.length - 1) {
+                    // last page. make button text to GOT IT
+                    btnNext.setText(getString(R.string.start));
+                    btnSkip.setVisibility(View.GONE);
+                } else {
+                    // still pages are left
+                    btnNext.setText(getString(R.string.next));
+                    btnSkip.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+
+            }
+        });
+
+        addBottomDots(0);
 
         btnSkip.setOnClickListener(v -> launchHomeScreen());
 
         btnNext.setOnClickListener(v -> {
             // checking for last page
             // if last page home screen will be launched
-            int current = getItem(+1);
+            int current = getItem();
             if (current < layouts.length) {
                 // move to next screen
                 viewPager.setCurrentItem(current);
@@ -88,9 +129,13 @@ public class ViewPager extends AppCompatActivity {
             dots[currentPage].setTextColor(colorsActive[currentPage]);
     }
 
+    private void warna(int warna) {
+        btnSkip.setTextColor(warna);
+        btnNext.setTextColor(warna);
+    }
 
-    private int getItem(int i) {
-        return viewPager.getCurrentItem() + i;
+    private int getItem() {
+        return viewPager.getCurrentItem() + 1;
     }
 
     private void launchHomeScreen() {
@@ -102,70 +147,47 @@ public class ViewPager extends AppCompatActivity {
         finish();
     }
 
-    //  viewpager change listener
-    androidx.viewpager.widget.ViewPager.OnPageChangeListener viewPagerPageChangeListener = new androidx.viewpager.widget.ViewPager.OnPageChangeListener() {
-
-        @Override
-        public void onPageSelected(int position) {
-            addBottomDots(position);
-
-            // changing the next button text 'NEXT' / 'GOT IT'
-            if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
-                btnNext.setText(getString(R.string.start));
-                btnSkip.setVisibility(View.GONE);
-            } else {
-                // still pages are left
-                btnNext.setText(getString(R.string.next));
-                btnSkip.setVisibility(View.VISIBLE);
-            }
-        }
-
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-
-        }
-    };
-
     /**
      * View pager adapter
      */
-    public class MyViewPagerAdapter extends PagerAdapter {
+    public class MyViewPagerAdapter extends RecyclerView.Adapter<MyViewPagerAdapter.ViewHolder> {
 
         public MyViewPagerAdapter() {
         }
 
         @NonNull
         @Override
-        public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View view = layoutInflater.inflate(layouts[position], container, false);
-            container.addView(view);
-
-            return view;
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(layouts[viewType], parent, false);
+            return new ViewHolder(view);
         }
 
         @Override
-        public int getCount() {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            // Tidak ada yang perlu dilakukan di sini untuk kode Anda saat ini
+        }
+
+        @Override
+        public int getItemCount() {
             return layouts.length;
         }
 
         @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
-            return view == obj;
+        public int getItemViewType(int position) {
+            return position; // Menambahkan ini
         }
 
-
         @Override
-        public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
-            View view = (View) object;
-            container.removeView(view);
+        public void onViewRecycled(@NonNull ViewHolder holder) {
+            super.onViewRecycled(holder);
+            // Kode Anda untuk membersihkan tampilan sebelum didaur ulang
+            ((ViewGroup) holder.itemView).removeAllViews();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            public ViewHolder(@NonNull View itemView) {
+                super(itemView);
+            }
         }
     }
 }

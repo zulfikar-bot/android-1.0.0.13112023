@@ -29,6 +29,9 @@ import io.realm.Realm;
 
 public class AddNoteActivity extends AppCompatActivity {
 
+    TextView titletextview;
+    EditText titleInput, descriptionInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,24 +52,16 @@ public class AddNoteActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        TextView titletextview = findViewById(R.id.titletextview);
-        EditText titleInput = findViewById(R.id.titleinput);
-        EditText descriptionInput = findViewById(R.id.descriptioninput);
+        this.titletextview = findViewById(R.id.titletextview);
+        this.titleInput = findViewById(R.id.titleinput);
+        this.descriptionInput = findViewById(R.id.descriptioninput);
         MaterialButton saveBtn = findViewById(R.id.savebtn);
 
         if (isDarkMode) {
-            titletextview.setTextColor(getResources().getColor(R.color.black));
-            titleInput.setTextColor(getResources().getColor(R.color.black));
-            descriptionInput.setTextColor(getResources().getColor(R.color.black));
-            titleInput.setHintTextColor(getResources().getColor(R.color.black));
-            descriptionInput.setHintTextColor(getResources().getColor(R.color.black));
+            warna(R.color.black);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
-            titletextview.setTextColor(getResources().getColor(R.color.white));
-            titleInput.setTextColor(getResources().getColor(R.color.white));
-            descriptionInput.setTextColor(getResources().getColor(R.color.white));
-            titleInput.setHintTextColor(getResources().getColor(R.color.white));
-            descriptionInput.setHintTextColor(getResources().getColor(R.color.white));
+            warna(R.color.white);
             getWindow().getDecorView().setSystemUiVisibility(0);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
@@ -93,7 +88,13 @@ public class AddNoteActivity extends AppCompatActivity {
 
 
         });
+    }
 
-
+    private void warna(int warna){
+        titletextview.setTextColor(getResources().getColor(warna));
+        titleInput.setTextColor(getResources().getColor(warna));
+        descriptionInput.setTextColor(getResources().getColor(warna));
+        titleInput.setHintTextColor(getResources().getColor(warna));
+        descriptionInput.setHintTextColor(getResources().getColor(warna));
     }
 }

@@ -15,8 +15,10 @@ import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERE
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainMenu2 extends AppCompatActivity {
 
@@ -26,6 +28,16 @@ public class MainMenu2 extends AppCompatActivity {
         setContentView(R.layout.activity_menu2);
         boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
         DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
+
+        TextView atas = findViewById(R.id.atas);
+        if (isDarkMode) {
+            atas.setTextColor(getResources().getColor(R.color.colorAccent));
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            atas.setTextColor(getResources().getColor(R.color.link));
+            getWindow().getDecorView().setSystemUiVisibility(0);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         TableRow menu4 = findViewById(R.id.menu4);
         menu4.setOnClickListener(v -> {

@@ -58,23 +58,11 @@ public class WebViewAdapter extends RecyclerView.Adapter<WebViewAdapter.WebViewH
 
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-                try {
-                    WebSettingsCompat.setAlgorithmicDarkeningAllowed(holder.webView.getSettings(), true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            settings(holder, true);
         } else {
             activity.getWindow().getDecorView().setSystemUiVisibility(0);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-                try {
-                    WebSettingsCompat.setAlgorithmicDarkeningAllowed(holder.webView.getSettings(), false);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            settings(holder, false);
         }
 
         WebSettings webSettings = holder.webView.getSettings();
@@ -94,10 +82,6 @@ public class WebViewAdapter extends RecyclerView.Adapter<WebViewAdapter.WebViewH
         webSettings.setDomStorageEnabled(true);
         webSettings.setDatabaseEnabled(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             CookieManager.getInstance().setAcceptThirdPartyCookies(holder.webView, true);
         } else {
@@ -107,9 +91,11 @@ public class WebViewAdapter extends RecyclerView.Adapter<WebViewAdapter.WebViewH
         // Mengatur mode render
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             holder.webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+            WebView.setWebContentsDebuggingEnabled(true);
         } else {
             holder.webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
+
         holder.webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -151,6 +137,16 @@ public class WebViewAdapter extends RecyclerView.Adapter<WebViewAdapter.WebViewH
                 view.setLayoutParams(params);
             }
         });
+    }
+
+    private void settings(WebViewHolder holder, boolean setting){
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
+            try {
+                WebSettingsCompat.setAlgorithmicDarkeningAllowed(holder.webView.getSettings(), setting);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

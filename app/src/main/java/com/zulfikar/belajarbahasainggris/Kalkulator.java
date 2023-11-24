@@ -15,7 +15,6 @@ import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERE
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -35,10 +34,12 @@ public class Kalkulator extends AppCompatActivity {
     private void appendToMainTextView(String value) {
         String currentText = tvmain.getText().toString();
         if (currentText.length() < MAX_INPUT_LENGTH) {
-            tvmain.setText(currentText + value);
+            String text = currentText + value;
+            tvmain.setText(text);
         } else {
             // Display an error message, for example:
-            tvsec.setText("Error: Max input length reached");
+            String text = "Error: Max input length reached";
+            tvsec.setText(text);
             tvmain.setText("");
         }
     }
@@ -49,7 +50,8 @@ public class Kalkulator extends AppCompatActivity {
             tvmain.setText(value);
         } else {
             // Display an error message, for example:
-            tvsec.setText("Error: Max input length reached");
+            String text = "Error: Max input length reached";
+            tvsec.setText(text);
             tvmain.setText("");
         }
     }
@@ -60,7 +62,8 @@ public class Kalkulator extends AppCompatActivity {
             tvsec.setText(value);
         } else {
             // Display an error message, for example:
-            tvsec.setText("Error: Max input length reached");
+            String text = "Error: Max input length reached";
+            tvsec.setText(text);
             tvmain.setText("");
         }
     }
@@ -121,32 +124,10 @@ public class Kalkulator extends AppCompatActivity {
         tvsec = findViewById(R.id.tvsec);
 
         if (isDarkMode) {
-            bpi.setTextColor(getResources().getColor(R.color.black)); // Atur warna untuk tombol phi
-            bdot.setTextColor(getResources().getColor(R.color.black)); // Atur warna untuk tombol tanda titik
-            b1.setTextColor(getResources().getColor(R.color.black)); // Atur warna untuk tombol 1 (dan sebagainya)
-            b2.setTextColor(getResources().getColor(R.color.black));
-            b3.setTextColor(getResources().getColor(R.color.black));
-            b4.setTextColor(getResources().getColor(R.color.black));
-            b5.setTextColor(getResources().getColor(R.color.black));
-            b6.setTextColor(getResources().getColor(R.color.black));
-            b7.setTextColor(getResources().getColor(R.color.black));
-            b8.setTextColor(getResources().getColor(R.color.black));
-            b9.setTextColor(getResources().getColor(R.color.black));
-            b0.setTextColor(getResources().getColor(R.color.black));
+            warna(R.color.black);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
-            bpi.setTextColor(getResources().getColor(R.color.white)); // Atur warna untuk tombol phi
-            bdot.setTextColor(getResources().getColor(R.color.white)); // Atur warna untuk tombol tanda titik
-            b1.setTextColor(getResources().getColor(R.color.white)); // Atur warna untuk tombol 1 (dan sebagainya)
-            b2.setTextColor(getResources().getColor(R.color.white));
-            b3.setTextColor(getResources().getColor(R.color.white));
-            b4.setTextColor(getResources().getColor(R.color.white));
-            b5.setTextColor(getResources().getColor(R.color.white));
-            b6.setTextColor(getResources().getColor(R.color.white));
-            b7.setTextColor(getResources().getColor(R.color.white));
-            b8.setTextColor(getResources().getColor(R.color.white));
-            b9.setTextColor(getResources().getColor(R.color.white));
-            b0.setTextColor(getResources().getColor(R.color.white));
+            warna(R.color.white);
             getWindow().getDecorView().setSystemUiVisibility(0);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
@@ -158,283 +139,159 @@ public class Kalkulator extends AppCompatActivity {
         // onclick listeners
         b2.setOnClickListener(v -> appendToMainTextView("2"));
 
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("3");
-            }
-        });
+        b3.setOnClickListener(v -> appendToMainTextView("3"));
 
         // Add similar listeners for other numeric buttons
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("4");
-            }
-        });
+        b4.setOnClickListener(v -> appendToMainTextView("4"));
 
 // Add similar listeners for other operator buttons
-        bmul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("×");
-            }
-        });
+        bmul.setOnClickListener(v -> appendToMainTextView("×"));
 
         // Add similar listeners for other numeric buttons
 
-        bplus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("+");
-            }
-        });
+        bplus.setOnClickListener(v -> appendToMainTextView("+"));
 
-        bmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("-");
-            }
+        bmin.setOnClickListener(v -> appendToMainTextView("-"));
+
+// Add similar listeners for other operator buttons
+
+        bsquare.setOnClickListener(v -> appendToMainTextView("²"));
+
+        bfact.setOnClickListener(v -> appendToMainTextView("!"));
+
+
+        b5.setOnClickListener(v -> appendToMainTextView("5"));
+
+        b6.setOnClickListener(v -> appendToMainTextView("6"));
+
+        b7.setOnClickListener(v -> appendToMainTextView("7"));
+
+        b8.setOnClickListener(v -> appendToMainTextView("8"));
+
+        b9.setOnClickListener(v -> appendToMainTextView("9"));
+
+        b0.setOnClickListener(v -> appendToMainTextView("0"));
+
+        bdot.setOnClickListener(v -> appendToMainTextView("."));
+
+        bpi.setOnClickListener(v -> {
+            String pi = (String) bpi.getText();
+            appendToMainTextView4(pi);
+            appendToMainTextView("3.14159265");
         });
 
 // Add similar listeners for other operator buttons
 
-        bsquare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("²");
-            }
-        });
+        bdiv.setOnClickListener(v -> appendToMainTextView("÷"));
 
-        bfact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("!");
-            }
-        });
-
-
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("5");
-            }
-        });
-
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("6");
-            }
-        });
-
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("7");
-            }
-        });
-
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("8");
-            }
-        });
-
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("9");
-            }
-        });
-
-        b0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("0");
-            }
-        });
-
-        bdot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView(".");
-            }
-        });
-
-        bpi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String pi = (String) bpi.getText();
-                appendToMainTextView4(pi);
-                appendToMainTextView("3.14159265");
-            }
-        });
+        binv.setOnClickListener(v -> appendToMainTextView("^(-1)"));
 
 // Add similar listeners for other operator buttons
 
-        bdiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("÷");
+        bsqrt.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
+
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger(currentText)) {
+                appendToMainTextView2("sqrt(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("sqrt(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
-        binv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("^(-1)");
+        bsin.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
+
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger(currentText)) {
+                appendToMainTextView2("sin(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("sin(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
-// Add similar listeners for other operator buttons
+        bcos.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
 
-        bsqrt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
-
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger(currentText)) {
-                    appendToMainTextView2("sqrt(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("sqrt(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger(currentText)) {
+                appendToMainTextView2("cos(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("cos(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
-        bsin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
+        btan.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
 
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger(currentText)) {
-                    appendToMainTextView2("sin(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("sin(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger(currentText)) {
+                appendToMainTextView2("tan(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("tan(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
-        bcos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
+        blog.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
 
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger(currentText)) {
-                    appendToMainTextView2("cos(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("cos(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger(currentText)) {
+                appendToMainTextView2("log(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("log(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
-        btan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
+        bln.setOnClickListener(v -> {
+            String currentText = tvmain.getText().toString();
 
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger(currentText)) {
-                    appendToMainTextView2("tan(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("tan(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
-            }
-        });
-
-        blog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
-
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger(currentText)) {
-                    appendToMainTextView2("log(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("log(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
-            }
-        });
-
-        bln.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentText = tvmain.getText().toString();
-
-                // Check if tvmain is not empty and contains a valid numeric expression
-                if (!currentText.isEmpty() && isValidInteger2(currentText)) {
-                    appendToMainTextView2("ln(" + currentText + ")");
-                } else if (!currentText.isEmpty()) {
-                    appendToMainTextView2("ln(" + currentText + ")");
-                } else {
-                    // Display an error message in tvsec
-                    tvsec.setText("Error: Invalid input for square root");
-                    clearMainTextView();
-                }
+            // Check if tvmain is not empty and contains a valid numeric expression
+            if (!currentText.isEmpty() && isValidInteger2(currentText)) {
+                appendToMainTextView2("ln(" + currentText + ")");
+            } else if (!currentText.isEmpty()) {
+                appendToMainTextView2("ln(" + currentText + ")");
+            } else {
+                // Display an error message in tvsec
+                tvsec.setText("Error: Invalid input for square root");
+                clearMainTextView();
             }
         });
 
 
         // Add similar listeners for other special function buttons
-        bb1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView("(");
-            }
+        bb1.setOnClickListener(v -> appendToMainTextView("("));
+
+        bb2.setOnClickListener(v -> appendToMainTextView(")"));
+
+        bac.setOnClickListener(v -> {
+            clearMainTextView();
+            tvsec.setText("");
         });
 
-        bb2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendToMainTextView(")");
-            }
-        });
+        bc.setOnClickListener(v -> removeLastChar());
 
-        bac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearMainTextView();
-                tvsec.setText("");
-            }
-        });
-
-        bc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeLastChar();
-            }
-        });
-
-        bequal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                evaluateExpression();
-            }
-        });
+        bequal.setOnClickListener(v -> evaluateExpression());
     }
 
     private void clearMainTextView() {
@@ -454,14 +311,16 @@ public class Kalkulator extends AppCompatActivity {
 
         if (val.isEmpty()) {
             // Display an error message for empty input
-            tvsec.setText("Error: Input is empty");
+            String text ="Error: Input is empty";
+            tvsec.setText(text);
             clearMainTextView();
             return;
         }
 
         if (val.length() > MAX_INPUT_LENGTH) {
             // Display an error message for exceeding max length
-            tvsec.setText("Error: Max input length reached");
+            String text = "Error: Max input length reached";
+            tvsec.setText(text);
             clearMainTextView();
             return;
         }
@@ -484,7 +343,8 @@ public class Kalkulator extends AppCompatActivity {
                 tvsec.setText(val);
             } else {
                 // Display an error message if the expression before factorial is not a valid integer
-                tvsec.setText("Error: Invalid input for factorial");
+                String text = "Error: Invalid input for factorial";
+                tvsec.setText(text);
                 clearMainTextView();
             }
         } else {
@@ -507,7 +367,8 @@ public class Kalkulator extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 // Handle the exception
-                tvsec.setText("Error: " + e.getMessage());
+                String text = "Error: " + e.getMessage();
+                tvsec.setText(text);
                 clearMainTextView();
             }
         }
@@ -524,7 +385,7 @@ public class Kalkulator extends AppCompatActivity {
     }
 
     private boolean isValidInteger2(String expression) {
-        return expression.matches("[\\d.()+\\-*/^sincostanlogln]+");
+        return expression.matches("[\\d.()+\\-*/^]+|sin|cos|tan|log|ln");
     }
 
     private String processSquareOperation(String expression) {
@@ -635,5 +496,20 @@ public class Kalkulator extends AppCompatActivity {
                 return x;
             }
         }.parse();
+    }
+    
+    private void warna(int warna){
+        bpi.setTextColor(getResources().getColor(warna)); // Atur warna untuk tombol phi
+        bdot.setTextColor(getResources().getColor(warna)); // Atur warna untuk tombol tanda titik
+        b1.setTextColor(getResources().getColor(warna)); // Atur warna untuk tombol 1 (dan sebagainya)
+        b2.setTextColor(getResources().getColor(warna));
+        b3.setTextColor(getResources().getColor(warna));
+        b4.setTextColor(getResources().getColor(warna));
+        b5.setTextColor(getResources().getColor(warna));
+        b6.setTextColor(getResources().getColor(warna));
+        b7.setTextColor(getResources().getColor(warna));
+        b8.setTextColor(getResources().getColor(warna));
+        b9.setTextColor(getResources().getColor(warna));
+        b0.setTextColor(getResources().getColor(warna));
     }
 }

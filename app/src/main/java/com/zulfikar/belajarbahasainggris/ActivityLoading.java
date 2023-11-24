@@ -12,6 +12,7 @@ package com.zulfikar.belajarbahasainggris;
 
 import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,10 +22,17 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.multidex.MultiDex;
 
 public class ActivityLoading extends AppCompatActivity {
 
     private static final int LOADING_TIME = 3000; // 3 seconds
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

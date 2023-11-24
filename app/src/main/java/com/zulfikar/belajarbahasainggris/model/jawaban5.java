@@ -14,7 +14,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class jawaban5 implements Parcelable {
-    private String soal13, soal14, soal15, soal16, soal17, soal21;
+    private final String soal13, soal14, soal15, soal16, soal17, soal21;
 
     public jawaban5(String soal13, String soal14, String soal15, String soal16, String soal17, String soal21) {
         this.soal13 = soal13;
@@ -50,48 +50,24 @@ public class jawaban5 implements Parcelable {
         return soal13;
     }
 
-    public void setSoal13(String soal13) {
-        this.soal13 = soal13;
-    }
-
     public String getSoal14() {
         return soal14;
-    }
-
-    public void setSoal14(String soal14) {
-        this.soal14 = soal14;
     }
 
     public String getSoal15() {
         return soal15;
     }
 
-    public void setSoal15(String soal15) {
-        this.soal15 = soal15;
-    }
-
     public String getSoal16() {
         return soal16;
-    }
-
-    public void setSoal16(String soal16) {
-        this.soal16 = soal16;
     }
 
     public String getSoal17() {
         return soal17;
     }
 
-    public void setSoal17(String soal17) {
-        this.soal17 = soal17;
-    }
-
     public String getSoal21() {
         return soal21;
-    }
-
-    public void setSoal21(String soal21) {
-        this.soal21 = soal21;
     }
 
     @Override

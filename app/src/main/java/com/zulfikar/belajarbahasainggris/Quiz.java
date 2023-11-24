@@ -40,6 +40,7 @@ public class Quiz extends AppCompatActivity {
     private ImageView ivImage, play_pause, stop ;
     private MediaPlayer mediaPlayer;
     private CountDownTimer countDownTimer;
+    private LinearLayout linearlayout;
     int nomor = 0;
     int score;
     int benar  = 0, salah = 0;
@@ -120,7 +121,7 @@ public class Quiz extends AppCompatActivity {
         play_pause = findViewById(R.id.play_pause);
         stop = findViewById(R.id.stop);
         waktu = findViewById(R.id.waktu);
-        LinearLayout linearlayout = findViewById(R.id.linearlayout);
+        this.linearlayout = findViewById(R.id.linearlayout);
 
         rgPilihan.check(0);
 
@@ -132,87 +133,7 @@ public class Quiz extends AppCompatActivity {
             ivImage.setVisibility(View.GONE);
         }
         if(audio[nomor] != 0) {
-            linearlayout.setVisibility(View.VISIBLE);
-
-            // Inisialisasi MediaPlayer dan SeekBar
-            mediaPlayer = MediaPlayer.create(this, audio[nomor]);
-
-            play_pause.setOnClickListener(new View.OnClickListener() {
-                boolean isPlaying = false;
-                @Override
-                public void onClick(View v) {
-                    isPlaying = !isPlaying; // Ubah status pemutaran
-                    if(isPlaying) {
-                        mediaPlayer.start();
-                        play_pause.setImageResource(R.drawable.pause);
-                        stop.setVisibility(View.VISIBLE);
-                    } else {
-                        mediaPlayer.pause();
-                        play_pause.setImageResource(R.drawable.play);
-                    }
-                }
-            });
-
-            stop.setOnClickListener(v1 -> {
-                mediaPlayer.stop();
-                mediaPlayer.prepareAsync();
-                play_pause.setImageResource(R.drawable.play);
-                stop.setVisibility(View.GONE);
-            });
-
-            mediaPlayer.setOnCompletionListener(mp -> {
-                play_pause.setImageResource(R.drawable.play);
-                stop.setVisibility(View.GONE);
-            });
-
-            int duration = mediaPlayer.getDuration();
-            int secondsTotal = duration / 1000;
-            int hours = secondsTotal / (60 * 60);
-            int minutes = (secondsTotal % (60 * 60)) / 60;
-            int seconds = secondsTotal % 60;
-            String times = hours+"."+minutes+"."+seconds;
-            waktu.setText(times);
-
-            // Atur maksimum SeekBar ke durasi audio (dalam milidetik)
-            seekbar.setMax(mediaPlayer.getDuration());
-
-            // Atur OnSeekBarChangeListener untuk SeekBar
-            seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    if(fromUser) {
-                        // Jika pengguna menggeser SeekBar, atur posisi pemutaran audio
-                        mediaPlayer.seekTo(progress);
-                    }
-                    // Tampilkan waktu audio saat ini (dalam detik)
-                    int seconds = (progress / 1000) % 60;
-                    int minutes = (progress / (1000 * 60)) % 60;
-                    int hours = (progress / (1000 * 60 * 60)) % 24;
-                    String time = hours+"."+minutes+"."+seconds;
-                    waktu.setText(time);
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {}
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {}
-            });
-
-            // Buat Runnable untuk memperbarui posisi SeekBar saat audio diputar
-            Runnable updateSeekBar = new Runnable() {
-                @Override
-                public void run() {
-                    // Perbarui posisi SeekBar ke posisi pemutaran audio saat ini
-                    seekbar.setProgress(mediaPlayer.getCurrentPosition());
-
-                    // Jalankan Runnable ini lagi setelah 1000 milidetik
-                    seekbar.postDelayed(this, 1000);
-                }
-            };
-
-            // Mulai Runnable
-            seekbar.post(updateSeekBar);
+            audio();
         } else {
             linearlayout.setVisibility(View.GONE);
         }
@@ -268,87 +189,7 @@ public class Quiz extends AppCompatActivity {
                         ivImage.setVisibility(View.GONE);
                     }
                     if(audio[nomor] != 0) {
-                        linearlayout.setVisibility(View.VISIBLE);
-
-                        // Inisialisasi MediaPlayer dan SeekBar
-                        mediaPlayer = MediaPlayer.create(this, audio[nomor]);
-
-                        play_pause.setOnClickListener(new View.OnClickListener() {
-                            boolean isPlaying = false;
-                            @Override
-                            public void onClick(View v) {
-                                isPlaying = !isPlaying; // Ubah status pemutaran
-                                if(isPlaying) {
-                                    mediaPlayer.start();
-                                    play_pause.setImageResource(R.drawable.pause);
-                                    stop.setVisibility(View.VISIBLE);
-                                } else {
-                                    mediaPlayer.pause();
-                                    play_pause.setImageResource(R.drawable.play);
-                                }
-                            }
-                        });
-
-                        stop.setOnClickListener(v1 -> {
-                            mediaPlayer.stop();
-                            mediaPlayer.prepareAsync();
-                            play_pause.setImageResource(R.drawable.play);
-                            stop.setVisibility(View.GONE);
-                        });
-
-                        mediaPlayer.setOnCompletionListener(mp -> {
-                            play_pause.setImageResource(R.drawable.play);
-                            stop.setVisibility(View.GONE);
-                        });
-
-                        int duration = mediaPlayer.getDuration();
-                        int secondsTotal = duration / 1000;
-                        int hours = secondsTotal / (60 * 60);
-                        int minutes = (secondsTotal % (60 * 60)) / 60;
-                        int seconds = secondsTotal % 60;
-                        String times = hours+"."+minutes+"."+seconds;
-                        waktu.setText(times);
-
-                        // Atur maksimum SeekBar ke durasi audio (dalam milidetik)
-                        seekbar.setMax(mediaPlayer.getDuration());
-
-                        // Atur OnSeekBarChangeListener untuk SeekBar
-                        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                            @Override
-                            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                                if(fromUser) {
-                                    // Jika pengguna menggeser SeekBar, atur posisi pemutaran audio
-                                    mediaPlayer.seekTo(progress);
-                                }
-                                // Tampilkan waktu audio saat ini (dalam detik)
-                                int seconds = (progress / 1000) % 60;
-                                int minutes = (progress / (1000 * 60)) % 60;
-                                int hours = (progress / (1000 * 60 * 60)) % 24;
-                                String time = hours+"."+minutes+"."+seconds;
-                                waktu.setText(time);
-                            }
-
-                            @Override
-                            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-                            @Override
-                            public void onStopTrackingTouch(SeekBar seekBar) {}
-                        });
-
-                        // Buat Runnable untuk memperbarui posisi SeekBar saat audio diputar
-                        Runnable updateSeekBar = new Runnable() {
-                            @Override
-                            public void run() {
-                                // Perbarui posisi SeekBar ke posisi pemutaran audio saat ini
-                                seekbar.setProgress(mediaPlayer.getCurrentPosition());
-
-                                // Jalankan Runnable ini lagi setelah 1000 milidetik
-                                seekbar.postDelayed(this, 1000);
-                            }
-                        };
-
-                        // Mulai Runnable
-                        seekbar.post(updateSeekBar);
+                        audio();
                     } else {
                         linearlayout.setVisibility(View.GONE);
                     }
@@ -370,6 +211,90 @@ public class Quiz extends AppCompatActivity {
                 Toast.makeText(Quiz.this, "Silahkan Pilih Jawaban Terlebih Dahulu!!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void audio(){
+        linearlayout.setVisibility(View.VISIBLE);
+
+        // Inisialisasi MediaPlayer dan SeekBar
+        mediaPlayer = MediaPlayer.create(this, audio[nomor]);
+
+        play_pause.setOnClickListener(new View.OnClickListener() {
+            boolean isPlaying = false;
+            @Override
+            public void onClick(View v) {
+                isPlaying = !isPlaying; // Ubah status pemutaran
+                if(isPlaying) {
+                    mediaPlayer.start();
+                    play_pause.setImageResource(R.drawable.pause);
+                    stop.setVisibility(View.VISIBLE);
+                } else {
+                    mediaPlayer.pause();
+                    play_pause.setImageResource(R.drawable.play);
+                }
+            }
+        });
+
+        stop.setOnClickListener(v1 -> {
+            mediaPlayer.stop();
+            mediaPlayer.prepareAsync();
+            play_pause.setImageResource(R.drawable.play);
+            stop.setVisibility(View.GONE);
+        });
+
+        mediaPlayer.setOnCompletionListener(mp -> {
+            play_pause.setImageResource(R.drawable.play);
+            stop.setVisibility(View.GONE);
+        });
+
+        int duration = mediaPlayer.getDuration();
+        int secondsTotal = duration / 1000;
+        int hours = secondsTotal / (60 * 60);
+        int minutes = (secondsTotal % (60 * 60)) / 60;
+        int seconds = secondsTotal % 60;
+        String times = hours+"."+minutes+"."+seconds;
+        waktu.setText(times);
+
+        // Atur maksimum SeekBar ke durasi audio (dalam milidetik)
+        seekbar.setMax(mediaPlayer.getDuration());
+
+        // Atur OnSeekBarChangeListener untuk SeekBar
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(fromUser) {
+                    // Jika pengguna menggeser SeekBar, atur posisi pemutaran audio
+                    mediaPlayer.seekTo(progress);
+                }
+                // Tampilkan waktu audio saat ini (dalam detik)
+                int seconds = (progress / 1000) % 60;
+                int minutes = (progress / (1000 * 60)) % 60;
+                int hours = (progress / (1000 * 60 * 60)) % 24;
+                String time = hours+"."+minutes+"."+seconds;
+                waktu.setText(time);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        // Buat Runnable untuk memperbarui posisi SeekBar saat audio diputar
+        Runnable updateSeekBar = new Runnable() {
+            @Override
+            public void run() {
+                // Perbarui posisi SeekBar ke posisi pemutaran audio saat ini
+                seekbar.setProgress(mediaPlayer.getCurrentPosition());
+
+                // Jalankan Runnable ini lagi setelah 1000 milidetik
+                seekbar.postDelayed(this, 1000);
+            }
+        };
+
+        // Mulai Runnable
+        seekbar.post(updateSeekBar);
     }
 
         @Override

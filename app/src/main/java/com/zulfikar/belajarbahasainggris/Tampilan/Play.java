@@ -13,13 +13,17 @@ package com.zulfikar.belajarbahasainggris.Tampilan;
 import static com.zulfikar.belajarbahasainggris.DataLoadingUtility.THEME_PREFERENCE;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.zulfikar.belajarbahasainggris.DataLoadingUtility;
@@ -37,11 +41,7 @@ import com.zulfikar.belajarbahasainggris.model.jawaban5;
 
 public class Play extends AppCompatActivity {
 
-    public static final String SOAL_1 = "soal1";
-    public static final String SOAL_2 = "soal2";
-    public static final String SOAL_3 = "soal3";
-    public static final String SOAL_4 = "soal4";
-    public static final String SOAL_5 = "soal5";
+    public static final String SOAL_1 = "soal1", SOAL_2 = "soal2", SOAL_3 = "soal3", SOAL_4 = "soal4", SOAL_5 = "soal5";
     jawaban j;
     jawaban2 j2;
     jawaban3 j3;
@@ -54,11 +54,14 @@ public class Play extends AppCompatActivity {
     EditText edit18, edit19, edit20, edit22, edit28;
     EditText edit23, edit24, edit25, edit26, edit27;
     Button buttohasil;
+    ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play);
+        setContentView(R.layout.activity_tts_play);
+        boolean isDarkMode = getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE).getBoolean(DataLoadingUtility.IS_DARK_MODE, false);
+        DataLoadingUtility.loadData(getSharedPreferences(THEME_PREFERENCE, MODE_PRIVATE), this, isDarkMode);
 
         edit1 = findViewById(R.id.edit1);
         edit2 = findViewById(R.id.edit2);
@@ -94,6 +97,16 @@ public class Play extends AppCompatActivity {
         edit27 = findViewById(R.id.edit27);
 
         buttohasil = findViewById(R.id.button_hasil);
+        layout = findViewById(R.id.layout);
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            warna(R.drawable.bluebg, Color.BLACK);
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(0);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            warna(R.drawable.ttsbg2, Color.WHITE);
+        }
+
         buttohasil.setOnClickListener(v -> {
             if (edit1.length()==0 || edit2.length()==0 || edit3.length()==0 || edit4.length()==0 || edit5.length()==0 || edit12.length()==0) {
                 Toast.makeText(Play.this, "No. 1 belum terisi penuh", Toast.LENGTH_LONG).show();
@@ -110,9 +123,91 @@ public class Play extends AppCompatActivity {
                 handlehasil();
             }
         });
+        edit1.setOnClickListener(v -> soal1());
+        edit2.setOnClickListener(v -> soal1());
+        edit3.setOnClickListener(v -> soal1());
+        edit4.setOnClickListener(v -> soal1());
+        edit5.setOnClickListener(v -> soal1());
+        edit12.setOnLongClickListener(v -> {
+            soal1();
+            return true;
+        });
+        edit12.setOnClickListener(v -> soal4());
+        edit6.setOnClickListener(v -> soal4());
+        edit6.setOnLongClickListener(v -> {
+            soal5();
+            return true;
+        });
+        edit7.setOnClickListener(v -> soal4());
+        edit8.setOnLongClickListener(v -> {
+            soal4();
+            return true;
+        });
+        edit9.setOnClickListener(v -> soal4());
+        edit10.setOnClickListener(v -> soal4());
+        edit11.setOnClickListener(v -> soal4());
+        edit8.setOnClickListener(v -> soal3());
+        edit23.setOnClickListener(v -> soal3());
+        edit24.setOnClickListener(v -> soal3());
+        edit25.setOnClickListener(v -> soal3());
+        edit26.setOnClickListener(v -> soal3());
+        edit27.setOnClickListener(v -> soal3());
+        edit28.setOnLongClickListener(v -> {
+            soal3();
+            return true;
+        });
+        edit28.setOnClickListener(v -> soal2());
+        edit18.setOnClickListener(v -> soal2());
+        edit19.setOnClickListener(v -> soal2());
+        edit20.setOnClickListener(v -> soal2());
+        edit22.setOnClickListener(v -> soal2());
+        edit21.setOnLongClickListener(v -> {
+            soal2();
+            return true;
+        });
+        edit21.setOnClickListener(v -> soal5());
+        edit13.setOnClickListener(v -> soal5());
+        edit14.setOnClickListener(v -> soal5());
+        edit15.setOnClickListener(v -> soal5());
+        edit16.setOnClickListener(v -> soal5());
+        edit17.setOnClickListener(v -> soal5());
     }
 
-    public void soal1(View view) {
+    private void warna(int bg, int warna) {
+        Drawable background = ResourcesCompat.getDrawable(getResources(), bg, null);
+        layout.setBackground(background);
+        buttohasil.setTextColor(warna);
+        edit1.setTextColor(Color.BLACK);
+        edit2.setTextColor(Color.BLACK);
+        edit3.setTextColor(Color.BLACK);
+        edit4.setTextColor(Color.BLACK);
+        edit5.setTextColor(Color.BLACK);
+        edit12.setTextColor(Color.BLACK);
+        edit6.setTextColor(Color.BLACK);
+        edit7.setTextColor(Color.BLACK);
+        edit8.setTextColor(Color.BLACK);
+        edit9.setTextColor(Color.BLACK);
+        edit10.setTextColor(Color.BLACK);
+        edit11.setTextColor(Color.BLACK);
+        edit13.setTextColor(Color.BLACK);
+        edit14.setTextColor(Color.BLACK);
+        edit15.setTextColor(Color.BLACK);
+        edit16.setTextColor(Color.BLACK);
+        edit17.setTextColor(Color.BLACK);
+        edit21.setTextColor(Color.BLACK);
+        edit18.setTextColor(Color.BLACK);
+        edit19.setTextColor(Color.BLACK);
+        edit20.setTextColor(Color.BLACK);
+        edit22.setTextColor(Color.BLACK);
+        edit28.setTextColor(Color.BLACK);
+        edit23.setTextColor(Color.BLACK);
+        edit24.setTextColor(Color.BLACK);
+        edit25.setTextColor(Color.BLACK);
+        edit26.setTextColor(Color.BLACK);
+        edit27.setTextColor(Color.BLACK);
+    }
+
+    public void soal1() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Soal1Fragment soal1Fragment = (Soal1Fragment) getSupportFragmentManager().findFragmentByTag("SOAL1_FRAGMENT");
         if(soal1Fragment != null && soal1Fragment.isVisible()){
@@ -124,7 +219,7 @@ public class Play extends AppCompatActivity {
         }
     }
 
-    public void soal2(View view) {
+    public void soal2() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Soal2Fragment soal2_fragment = (Soal2Fragment) getSupportFragmentManager().findFragmentByTag("SOAL2_FRAGMENT");
         if(soal2_fragment != null && soal2_fragment.isVisible()){
@@ -136,7 +231,7 @@ public class Play extends AppCompatActivity {
         }
     }
 
-    public void soal3(View view) {
+    public void soal3() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Soal3Fragment soal3_fragment = (Soal3Fragment) getSupportFragmentManager().findFragmentByTag("SOAL3_FRAGMENT");
         if(soal3_fragment != null && soal3_fragment.isVisible()){
@@ -148,7 +243,7 @@ public class Play extends AppCompatActivity {
         }
     }
 
-    public void soal4(View view) {
+    public void soal4() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Soal4Fragment soal4_fragment = (Soal4Fragment) getSupportFragmentManager().findFragmentByTag("SOAL4_FRAGMENT");
         if(soal4_fragment != null && soal4_fragment.isVisible()){
@@ -160,7 +255,7 @@ public class Play extends AppCompatActivity {
         }
     }
 
-    public void soal5(View view) {
+    public void soal5() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Soal5Fragment soal5_fragment = (Soal5Fragment) getSupportFragmentManager().findFragmentByTag("SOAL5_FRAGMENT");
         if(soal5_fragment != null && soal5_fragment.isVisible()){

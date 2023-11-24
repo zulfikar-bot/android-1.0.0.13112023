@@ -68,7 +68,7 @@
     <string name="twitter"><u><i>https://twitter.com/mzulfikarsp/</i></u></string>
     <string name="pinterest"><u><i>https://id.pinterest.com/mzulfikarsp/</i></u></string>
     <string name="alamat">Alamat</string>
-    <string name="alamat2">Dusun III Sidodadi, Desa Sukamaju, Kec. Tapung Hilir, Kab. Kampar, Pekanbaru, Riau</string>
+    <string name="alamat2">Desa Sukamaju, Pekanbaru, Riau</string>
     <string name="kewarganegaraan">Kewarganegaraan</string>
     <string name="warga">Warga Negara Indonesia</string>
     <string name="pekerjaan">Pekerjaan</string>
@@ -89,7 +89,7 @@
     <string name="status">Belum Kawin</string>
     <string name="nomor_ponsel">Nomor Ponsel</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
-    <string name="tanggal2">Tegal, 18 November 2001</string>
+    <string name="tanggal2">November 2001</string>
     <string name="curriculum_vitae">CURRICULUM VITAE</string>
     <string name="informasi_pribadi">INFORMASI PRIBADI</string>
     <string name="website">Website</string>
@@ -141,7 +141,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="soal1">I’m tall when I’m young, and I’m short when I’m old. What am I?.</string>
     <string name="soal2">What is full of holes but still holds water?.</string>
-    <string name="soal3">What can ignite your heart, yet has no flame? It can push you forward, yet it has no physical force. It’s not in the air, but it can lift you high. What is it?.</string>
+    <string name="soal3">I am a word of five letters and I am a place you go to every day. Remove my first and last letter, I become a form of music. What am I?</string>
     <string name="soal4">What can you break, even if you never pick it up or touch it?.</string>
     <string name="soal5">I make a loud sound when I’m changing. When I do change, I get bigger but weigh less. What am I?.</string>
     <string name="play">PLAY</string>
@@ -153,13 +153,13 @@
     <string name="score">Your Score</string>
     <string name="penjelasan1">When a candle is new or “young”, it is long or “tall”. As the candle is used, it burns down, becoming shorter or “shorter”.</string>
     <string name="penjelasan2">A sponge is full of holes. These holes are spaces in the material that make up the sponge. If you look at a sponge, you can see these holes clearly. Despite being full of holes, a sponge can hold water. This is because the material of a sponge is absorbent, meaning it can soak up liquids. When you dip a sponge in water, the water fills up the holes and is stored in the sponge. Even when you take the sponge out of the water, the water doesn’t immediately pour out of the holes. Instead, it stays inside the sponge until you squeeze it or until the water evaporates. This is why we say a sponge “holds” water. So, even though a sponge has many holes, it can still hold water because of its absorbent material.</string>
-    <string name="penjelasan3">“What can ignite your heart, yet has no flame?” This refers to the emotional “spark” or excitement that inspiration can create within us. Just like a flame can ignite a fire, inspiration can ignite passion and motivation. However, unlike a physical flame, inspiration is an abstract concept. “It can push you forward, yet it has no physical force.” Inspiration often motivates us to take action and move forward with our ideas and goals. Despite having no physical presence, it can have a powerful influence on our actions and decisions. It’s not in the air, but it can lift you high.” This speaks to the uplifting feeling that often accompanies inspiration. When we’re inspired, we often feel a sense of elation or “high.” However, inspiration isn’t a physical thing that can be found “in the air.”</string>
+    <string name="penjelasan3">“OUTSIDE” is a word of five letters. It’s a place you go to every day. If you remove the first and last letters, you get “UTSID”, which isn’t a form of music. However, if we consider the word “INSIDE” instead, removing the first and last letters gives us “NSID”, which when pronounced sounds like “En Sid”, a form of music.</string>
     <string name="penjelasan4">A promise is a commitment or assurance that one will do something or that a particular thing will happen. Unlike physical objects, a promise is abstract and cannot be picked up or touched. Despite its intangible nature, a promise can be “broken”. This happens when the person who made the promise does not follow through on their commitment. For example, if someone promises to call you tomorrow, and they don’t, they have broken their promise.</string>
     <string name="penjelasan5">Popcorn kernels make a loud popping sound when they’re heated. This is because the heat causes the water inside the kernel to turn into steam, which builds up pressure until the kernel explodes. When a popcorn kernel pops, it turns inside out and becomes much larger than it was before. Despite getting bigger, popped popcorn actually weighs less than the original kernel. This is because the water inside the kernel, which contributes to its weight, turns into steam and is released when the kernel pops.</string>
     <string name="penjelasan">Penjelasan :</string>
     <string name="no5">5. POPCORN</string>
     <string name="no4">4. PROMISE</string>
-    <string name="no3">3. INSPIRE</string>
+    <string name="no3">3. OUTSIDE</string>
     <string name="no2">2. SPONGE</string>
     <string name="no1">1. CANDLE</string>
     <string name="about">ABOUT</string>
@@ -172,7 +172,7 @@
     <string name="letsplay">Lets Play Teka-Teki Silang</string>
     <string name="vp_play">Bermainlah dan tambah wawasan seputar English</string>
     <string name="explanation">EXPLANATION</string>
-    <string name="vp_explanation">Terdapat penjalasan singkat tentang soal - soal TTS</string>
+    <string name="vp_explanation">Terdapat penjelasan singkat tentang soal - soal TTS</string>
     <string name="created">CREATED BY</string>
     <string name="vp_crated">Game ini dibuat oleh Muhammad Zulfikar Sachori Putra</string>
 </resources>

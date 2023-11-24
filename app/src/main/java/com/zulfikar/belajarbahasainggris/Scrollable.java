@@ -31,6 +31,8 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class Scrollable extends AppCompatActivity {
 
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,19 +71,15 @@ public class Scrollable extends AppCompatActivity {
         });
 
         // Dapatkan referensi ke objek CollapsingToolbarLayout jika Anda menggunakannya
-        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+        this.collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
 
         // Ubah warna teks title
         if (collapsingToolbarLayout != null) {
             if (isDarkMode) {
-                collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
-                collapsingToolbarLayout.setExpandedTitleGravity(Gravity.CENTER);
-                collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.black));
+                warna(R.color.white);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.black));
-                collapsingToolbarLayout.setExpandedTitleGravity(Gravity.CENTER);
-                collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.black));
+                warna(R.color.black);
                 getWindow().getDecorView().setSystemUiVisibility(0);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
@@ -134,5 +132,11 @@ public class Scrollable extends AppCompatActivity {
                 startActivity(intent);
             }, 5000); // 5000 milidetik = 5 detik
         });
+    }
+
+    private void warna(int warna){
+        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(warna));
+        collapsingToolbarLayout.setExpandedTitleGravity(Gravity.CENTER);
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.black));
     }
 }
